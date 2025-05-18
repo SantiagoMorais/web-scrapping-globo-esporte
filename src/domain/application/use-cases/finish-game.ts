@@ -16,7 +16,7 @@ export class FinishGameUseCase {
     if (!game) return left(new ResourceNotFoundError());
     game.markAsOver();
 
-    this.gamesRepository.finish(game.id.toValue());
+    await this.gamesRepository.finish(game.id.toValue());
     return right({});
   }
 }
