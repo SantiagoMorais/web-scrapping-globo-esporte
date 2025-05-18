@@ -38,5 +38,6 @@ describe("Update Game Data Use Case", () => {
         title: "great game",
       })
     );
+    expect(inMemoryGamesRepository.games[0].updatedAt).toBeTruthy();
   });
 });
