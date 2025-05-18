@@ -28,6 +28,13 @@ export class Game extends Entity<TGameProps> {
     this.props.updatedAt = new Date();
   }
 
+  markAsOver() {
+    if (!this.props.isOver) {
+      this.props.isOver = true;
+      this.touch();
+    }
+  }
+
   static create(props: Optional<TGameProps, "createdAt">, id?: UniqueEntityId) {
     const game = new Game(
       {
