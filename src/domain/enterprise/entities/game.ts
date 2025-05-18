@@ -4,8 +4,16 @@ import { TGameProps } from "@/core/types/entities/game-props";
 import { Optional } from "@/core/types/optional";
 
 export class Game extends Entity<TGameProps> {
+  get scoreboard() {
+    return this.props.scoreboard;
+  }
+
   get title() {
     return this.props.title;
+  }
+
+  get lastEvent() {
+    return this.props.lastEvent;
   }
 
   get link() {
@@ -26,6 +34,21 @@ export class Game extends Entity<TGameProps> {
 
   private touch() {
     this.props.updatedAt = new Date();
+  }
+
+  set scoreboard(score: string) {
+    this.props.scoreboard = score;
+    this.touch();
+  }
+
+  set title(title: string) {
+    this.props.title = title;
+    this.touch();
+  }
+
+  set lastEvent(content: string) {
+    this.props.lastEvent = content;
+    this.touch();
   }
 
   markAsOver() {

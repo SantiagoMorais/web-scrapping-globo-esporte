@@ -16,6 +16,8 @@ describe("Create Game Use Case", () => {
     const game = await sut.execute({
       link: "https://example.com",
       title: "Best game ever",
+      lastEvent: "goal",
+      scoreboard: "América 2 x 0 Criciúma",
     });
 
     expect(inMemoryGamesRepository.games[0]).toEqual(
@@ -36,6 +38,8 @@ describe("Create Game Use Case", () => {
     const game = await sut.execute({
       link: sameLink,
       title: "Best game ever",
+      lastEvent: "goal",
+      scoreboard: "América 2 x 0 Criciúma",
     });
 
     expect(game.value).toBeInstanceOf(GameAlreadyCreatedError);

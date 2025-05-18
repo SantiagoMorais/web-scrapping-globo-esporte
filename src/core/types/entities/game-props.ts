@@ -1,7 +1,9 @@
 export type TGameProps = {
-    title: string;
-    link: string;
-    isOver: boolean;
-    createdAt: Date;
-    updatedAt?: Date;
-}
+  scoreboard: string;
+  title: string;
+  lastEvent: string;
+  link: string;
+  isOver: boolean;
+  createdAt: Date;
+  updatedAt?: Date;
+};

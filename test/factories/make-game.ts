@@ -12,6 +12,8 @@ export const makeGame = (
       isOver: false,
       link: faker.internet.url(),
       title: faker.lorem.words(5),
+      lastEvent: faker.lorem.lines(2),
+      scoreboard: faker.lorem.words(5),
       ...override,
     },
     id

@@ -3,7 +3,9 @@ import { GameAlreadyCreatedError } from "@/core/errors/game-already-created-erro
 import { Game } from "@/domain/enterprise/entities/game";
 
 export type TCreateGameUseCaseRequest = {
+  scoreboard: string;
   title: string;
+  lastEvent: string;
   link: string;
 };
 

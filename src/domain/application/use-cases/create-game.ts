@@ -13,11 +13,19 @@ export class CreateGameUseCase {
   async execute({
     link,
     title,
+    lastEvent,
+    scoreboard,
   }: TCreateGameUseCaseRequest): Promise<TCreateGameUseCaseResponse> {
     const existingGame = await this.gamesRepository.findByLink(link);
     if (existingGame) return left(new GameAlreadyCreatedError());
 
-    const newGame = Game.create({ isOver: false, link, title });
+    const newGame = Game.create({
+      isOver: false,
+      link,
+      title,
+      lastEvent,
+      scoreboard,
+    });
     await this.gamesRepository.create(newGame);
 
     return right({ game: newGame });
