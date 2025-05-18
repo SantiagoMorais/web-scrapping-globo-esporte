@@ -6,4 +6,5 @@ export interface GamesRepository {
   fetchActiveGames(): Promise<Game[] | null>;
   create(game: Game): Promise<Game>;
   finish(id: string): Promise<void>;
+  delete(id: string): Promise<void>;
 }

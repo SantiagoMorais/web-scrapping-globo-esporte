@@ -31,4 +31,9 @@ export class InMemoryGamesRepository implements GamesRepository {
     if (!activeGames) return null;
     return activeGames;
   }
+
+  async delete(id: string): Promise<void> {
+    const gameIndex = this.games.findIndex((game) => game.id.toValue() === id);
+    this.games.splice(gameIndex, 1);
+  }
 }
