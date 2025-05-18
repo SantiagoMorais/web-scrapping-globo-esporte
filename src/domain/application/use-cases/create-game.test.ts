@@ -20,6 +20,7 @@ describe("Create Game Use Case", () => {
       scoreboard: "América 2 x 0 Criciúma",
     });
 
+    expect(inMemoryGamesRepository.games).toHaveLength(1);
     expect(inMemoryGamesRepository.games[0]).toEqual(
       game.isRight() && game.value.game
     );
