@@ -1,9 +1,7 @@
-import { InMemoryGamesRepository } from "@test/repositories/in-memory-games-repository";
-import { CreateGameUseCase } from "./create-game";
-import { makeGame } from "@test/factories/make-game";
-import { GameAlreadyCreatedError } from "@/core/errors/game-already-created-error";
-import { FinishGameUseCase } from "./finish-game";
 import { UniqueEntityId } from "@/core/entities/unique-entity-id";
+import { makeGame } from "@test/factories/make-game";
+import { InMemoryGamesRepository } from "@test/repositories/in-memory-games-repository";
+import { FinishGameUseCase } from "./finish-game";
 
 let inMemoryGamesRepository: InMemoryGamesRepository;
 let sut: FinishGameUseCase;
@@ -14,7 +12,7 @@ describe("Finish Game Use Case", () => {
     sut = new FinishGameUseCase(inMemoryGamesRepository);
   });
 
-  it("should be able to create a new game", async () => {
+  it("should be able to finish a created game", async () => {
     await inMemoryGamesRepository.create(
       makeGame({}, new UniqueEntityId("game-1"))
     );
