@@ -1,0 +1,11 @@
+services:
+  mongodb:
+    image: mongo:6
+    container_name: mongodb
+    build: .
+    ports:
+      - "3333:3333"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: docker
+      MONGO_INITDB_ROOT_PASSWORD: docker
+      MONGO_INITDB_DATABASE: games-db
