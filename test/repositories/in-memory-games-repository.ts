@@ -14,4 +14,15 @@ export class InMemoryGamesRepository implements GamesRepository {
     if (!existingGame) return null;
     return existingGame;
   }
+
+  async findById(id: string): Promise<Game | null> {
+    const existingGame = this.games.find((g) => g.id.toValue() === id);
+    if (!existingGame) return null;
+    return existingGame;
+  }
+
+  async finish(id: string): Promise<void> {
+    const game = this.games.find((g) => g.id.toValue() === id);
+    game!.markAsOver();
+  }
 }
