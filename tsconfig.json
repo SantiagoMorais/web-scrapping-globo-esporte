@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "_version": "22.0.0",
-  
+
   "compilerOptions": {
     "lib": ["es2023", "DOM"],
     "module": "nodenext",
@@ -14,7 +14,9 @@
 
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"]
-    }
+      "@/*": ["./src/*"],
+      "@test/*": ["./test/*"]
+    },
+    "types": ["vitest/globals"]
   }
 }
