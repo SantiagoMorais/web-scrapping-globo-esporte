@@ -25,4 +25,10 @@ export class InMemoryGamesRepository implements GamesRepository {
     const game = this.games.find((g) => g.id.toValue() === id);
     game!.markAsOver();
   }
+
+  async fetchActiveGames(): Promise<Game[] | null> {
+    const activeGames = this.games.filter((game) => !game.isOver);
+    if (!activeGames) return null;
+    return activeGames;
+  }
 }
