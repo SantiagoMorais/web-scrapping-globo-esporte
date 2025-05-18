@@ -7,4 +7,5 @@ export interface GamesRepository {
   create(game: Game): Promise<Game>;
   finish(id: string): Promise<void>;
   delete(id: string): Promise<void>;
+  save(game: Game): Promise<void>;
 }

@@ -36,4 +36,9 @@ export class InMemoryGamesRepository implements GamesRepository {
     const gameIndex = this.games.findIndex((game) => game.id.toValue() === id);
     this.games.splice(gameIndex, 1);
   }
+
+  async save(game: Game): Promise<void> {
+    const gameIndex = this.games.findIndex((g) => g.id === game.id);
+    this.games[gameIndex] = game;
+  }
 }
